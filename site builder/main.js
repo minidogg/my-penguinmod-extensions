@@ -8,6 +8,9 @@ class siteBuilder {
       return {
         id: 'sitebuilder',
         name: 'Site Builder',
+        //colors
+        color1: '#7e69beff',
+        color2: '#3a286f',
         blocks: [
             {
                 blockType: Scratch.BlockType.LABEL,
@@ -71,7 +74,7 @@ class siteBuilder {
         //   },
             {
             blockType: Scratch.BlockType.LABEL,
-            text: "Elements. Also IDs are supposed to be unique so don't give out the same on to multiple elements! If you want do something to a group of elements use a class!"
+            text: "Elements. NOTE: IDs are supposed to be unique so don't give out the same on to multiple elements! If you want do something to a group of elements use a class!"
         },
           {
             opcode: 'addHeader',
@@ -117,7 +120,7 @@ class siteBuilder {
           },
           {
             blockType: Scratch.BlockType.LABEL,
-            text: "Page Modification"
+            text: "Page Modification. NOTE: Only works after the page window has been created."
         },
         {
             opcode: 'setInnerHtml',

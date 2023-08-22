@@ -231,7 +231,7 @@ class siteBuilder {
             },
             dir: {
               acceptReporters: true,
-              items: ["up","bottom","left","right"]
+              items: ["top","bottom","left","right"]
             },
             numType: {
               acceptReporters: true,

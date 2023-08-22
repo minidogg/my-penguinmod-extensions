@@ -11,7 +11,7 @@ class siteBuilder {
         //colors
         color1: '#7e69beff',
         color2: '#3a286f',
-        docsURI: 'https://docs.turbowarp.org/development/extensions/docsURI-demo',
+        docsURI: 'https://github.com/minidogg/my-penguinmod-extensions/blob/88ff87b8fff13b4e601415d94b201f12c6d475fc/site%20builder/docs/home.md',
         blocks: [
             {
                 blockType: Scratch.BlockType.LABEL,

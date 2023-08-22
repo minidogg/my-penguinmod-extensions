@@ -11,7 +11,7 @@ class siteBuilder {
         blocks: [
             {
                 blockType: Scratch.BlockType.LABEL,
-                text: "Note: Extension must be unsandboxed to work in its entirety"
+                text: "Note: Extension must be unsandboxed to work in its entirety."
             },
             {
                 blockType: Scratch.BlockType.LABEL,

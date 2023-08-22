@@ -1,2 +1,2 @@
 # my-penguinmod-extensions
-Extension I made for PenguinMod https://penguinmod.site/
+Extensions I made for PenguinMod https://penguinmod.site/

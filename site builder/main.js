@@ -74,7 +74,7 @@ class siteBuilder {
         //   },
             {
             blockType: Scratch.BlockType.LABEL,
-            text: "Elements. NOTE: IDs are supposed to be unique so don't give out the same on to multiple elements! If you want do something to a group of elements use a class!"
+            text: "Elements. One new ID per element!"
         },
           {
             opcode: 'addHeader',
@@ -120,7 +120,7 @@ class siteBuilder {
           },
           {
             blockType: Scratch.BlockType.LABEL,
-            text: "Page Modification. NOTE: Only works after the page window has been created."
+            text: "Page Modification. Window must be created first!"
         },
         {
             opcode: 'setInnerHtml',

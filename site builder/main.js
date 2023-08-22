@@ -8,10 +8,14 @@ class siteBuilder {
       return {
         id: 'sitebuilder',
         name: 'Site Builder',
+        //colors
+        color1: '#7e69beff',
+        color2: '#3a286f',
+        docsURI: 'https://github.com/minidogg/my-penguinmod-extensions/blob/88ff87b8fff13b4e601415d94b201f12c6d475fc/site%20builder/docs/home.md',
         blocks: [
             {
                 blockType: Scratch.BlockType.LABEL,
-                text: "Note: Extension must be unsandboxed to work in its entirety"
+                text: "Note: Extension must be unsandboxed to work in its entirety."
             },
             {
                 blockType: Scratch.BlockType.LABEL,
@@ -71,7 +75,7 @@ class siteBuilder {
         //   },
             {
             blockType: Scratch.BlockType.LABEL,
-            text: "Elements"
+            text: "Elements. One new ID per element!"
         },
           {
             opcode: 'addHeader',
@@ -117,7 +121,7 @@ class siteBuilder {
           },
           {
             blockType: Scratch.BlockType.LABEL,
-            text: "Page Modification"
+            text: "Page Modification. Window must be created first!"
         },
         {
             opcode: 'setInnerHtml',
@@ -180,6 +184,37 @@ class siteBuilder {
                 },
             }
           },
+          {
+            opcode: 'addPositionStyle',
+            blockType: Scratch.BlockType.COMMAND,
+            text: 'Add position style type [posType] [dir] with value [num][numType] to all elements with [type] selector named [name]',
+            arguments:{
+                dir: {
+                    type: Scratch.ArgumentType.STRING,
+                    menu:"dir"
+                },
+                num: {
+                    type: Scratch.ArgumentType.NUMBER,
+                    defaultValue:0
+                },
+                numType:{
+                  type: Scratch.ArgumentType.STRING,
+                  menu:"numType"
+                },
+                type: {
+                    type: Scratch.ArgumentType.STRING,
+                    menu:"selectors"
+                },
+                posType: {
+                  type: Scratch.ArgumentType.STRING,
+                  menu:"posType"
+                },
+                name: {
+                    type: Scratch.ArgumentType.STRING,
+                    defaultValue: ""
+                },
+            }
+          },
 
         ],
         menus: {
@@ -194,11 +229,26 @@ class siteBuilder {
             selectors: {
                 acceptReporters: true,
                 items: ["id","class"]
-            }
+            },
+            dir: {
+              acceptReporters: true,
+              items: ["top","bottom","left","right"]
+            },
+            numType: {
+              acceptReporters: true,
+              items: ["px","%"]
+            },
+            posType: {
+              acceptReporters: true,
+              items: ["absolute","fixed","sticky"]
+            },
           }
       };
     }
     
+    temp(){
+      return;
+    }
     site() {
       return this.siteHtml;
     }
@@ -237,6 +287,10 @@ class siteBuilder {
         var items = {"id":"#","class":"."}
         this.siteHtml += `<style>${items[args.type]}${args.name}{color:${args.value}}</style>`
     }
+    addPositionStyle(args){
+      var items = {"id":"#","class":"."}
+      this.siteHtml += `<style>${items[args.type]}${args.name}{position:${args.posType};${args.dir}:${args.num}${args.numType}}</style>`
+  }
     setInnerHtml(args){
         if(args.type = "id"){
             this.siteWindow.document.getElementById(args.name).innerHTML = args.text

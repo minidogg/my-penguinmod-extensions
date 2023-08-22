@@ -11,6 +11,7 @@ class siteBuilder {
         //colors
         color1: '#7e69beff',
         color2: '#3a286f',
+        docsURI: 'https://docs.turbowarp.org/development/extensions/docsURI-demo',
         blocks: [
             {
                 blockType: Scratch.BlockType.LABEL,

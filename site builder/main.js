@@ -71,7 +71,7 @@ class siteBuilder {
         //   },
             {
             blockType: Scratch.BlockType.LABEL,
-            text: "Elements"
+            text: "Elements. Also IDs are supposed to be unique so don't give out the same on to multiple elements! If you want do something to a group of elements use a class!"
         },
           {
             opcode: 'addHeader',

@@ -184,7 +184,7 @@ class siteBuilder {
             }
           },
           {
-            opcode: 'temp',
+            opcode: 'addPositionStyle',
             blockType: Scratch.BlockType.COMMAND,
             text: 'Add position style type [posType] [dir] with value [num][numType] to all elements with [type] selector named [name]',
             arguments:{
@@ -286,6 +286,10 @@ class siteBuilder {
         var items = {"id":"#","class":"."}
         this.siteHtml += `<style>${items[args.type]}${args.name}{color:${args.value}}</style>`
     }
+    addPositionStyle(args){
+      var items = {"id":"#","class":"."}
+      this.siteHtml += `<style>${items[args.type]}${args.name}{position:${args.posType};${args.dir}:${args.num}${args.numType}}</style>`
+  }
     setInnerHtml(args){
         if(args.type = "id"){
             this.siteWindow.document.getElementById(args.name).innerHTML = args.text

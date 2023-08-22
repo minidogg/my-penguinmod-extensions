@@ -183,6 +183,37 @@ class siteBuilder {
                 },
             }
           },
+          {
+            opcode: 'temp',
+            blockType: Scratch.BlockType.COMMAND,
+            text: 'Add position style type [posType] [dir] with value [num][numType] to all elements with [type] selector named [name]',
+            arguments:{
+                dir: {
+                    type: Scratch.ArgumentType.STRING,
+                    menu:"dir"
+                },
+                num: {
+                    type: Scratch.ArgumentType.NUMBER,
+                    defaultValue:0
+                },
+                numType:{
+                  type: Scratch.ArgumentType.STRING,
+                  menu:"numType"
+                },
+                type: {
+                    type: Scratch.ArgumentType.STRING,
+                    menu:"selectors"
+                },
+                posType: {
+                  type: Scratch.ArgumentType.STRING,
+                  menu:"posType"
+                },
+                name: {
+                    type: Scratch.ArgumentType.STRING,
+                    defaultValue: ""
+                },
+            }
+          },
 
         ],
         menus: {
@@ -197,11 +228,26 @@ class siteBuilder {
             selectors: {
                 acceptReporters: true,
                 items: ["id","class"]
-            }
+            },
+            dir: {
+              acceptReporters: true,
+              items: ["up","down","left","right"]
+            },
+            numType: {
+              acceptReporters: true,
+              items: ["px","%"]
+            },
+            posType: {
+              acceptReporters: true,
+              items: ["absolute","fixed","sticky"]
+            },
           }
       };
     }
     
+    temp(){
+      return;
+    }
     site() {
       return this.siteHtml;
     }

@@ -16,6 +16,9 @@ class regexCollection {
       return {
         id: 'regexCollection',
         name: 'Regex Collection',
+        color1:"#00691c",
+        color2:"#00611a",
+        color3:"#014012",
         blocks: [
           {
             opcode: 'exec',

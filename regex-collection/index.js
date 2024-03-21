@@ -74,12 +74,28 @@ class regexCollection {
           },
           {
             blockType: Scratch.BlockType.LABEL,
+            text: "RegExp Utilities"
+          },
+          {
+            opcode: 'escapeString',
+            blockType: Scratch.BlockType.REPORTER,
+            text: 'Escape string for regex: [string]',
+            arguments: {
+                string: {
+                    type: Scratch.ArgumentType.STRING,
+                    defaultValue: 'https://www.google.com'
+                }
+
+            },
+          },
+          {
+            blockType: Scratch.BlockType.LABEL,
             text: "Basic RegExp collection"
           },
           {
             opcode: 'basicRegex',
             blockType: Scratch.BlockType.REPORTER,
-            text: 'Get basic regex [regex]',
+            text: 'Get pre-built RegExp [regex]',
             arguments: {
                 regex: {
                     type: Scratch.ArgumentType.STRING,
@@ -123,13 +139,25 @@ class regexCollection {
                 },
                 f: {
                   type: Scratch.ArgumentType.STRING,
-                  defaultValue:""
+                  defaultValue:"/"
                 },
                 g: {
                   type: Scratch.ArgumentType.STRING,
-                  defaultValue:"/gi"
+                  defaultValue:"gi"
                 },
                 
+
+            },
+          },
+          {
+            opcode: 'readBase',
+            blockType: Scratch.BlockType.REPORTER,
+            text: '[base]',
+            arguments: {
+                base: {
+                    type: Scratch.ArgumentType.STRING,
+                    menu: 'BASE'
+                }
 
             },
           },
@@ -139,6 +167,19 @@ class regexCollection {
             BASIC_REGEX: {
               acceptReporters: true,
               items: this.basicRegexConstructed
+            },
+            BASE:{
+              acceptReporters:true,
+              items:[
+                {
+                  text:"Global flag",
+                  value:"g"
+                },
+                {
+                  text:"Insensitive flag",
+                  value:"i"
+                },
+              ]
             }
           }
       };
@@ -167,6 +208,20 @@ class regexCollection {
       basicRegex(args){
         return args.regex
       }
+      readBase(args){
+        return args.base
+      }
+
+      escapeString(args){
+        let chars = args.string.split("")
+        let result = ""
+        chars.forEach((e)=>{
+          result+=(".^$*+?()[{\|".includes(e.toLowerCase()))?("\\"+e):e
+        })
+        
+        return result
+      }
+      
 
       join(args){
         let result = ""

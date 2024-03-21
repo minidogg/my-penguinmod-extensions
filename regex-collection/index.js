@@ -161,7 +161,6 @@ class regexCollection {
       }
 
       getCaptureGroup(args){
-        alert(args.array)
         return args.array[0]=="["?JSON.parse(args.array)[args.index]:"Invalid array!"
       }
 

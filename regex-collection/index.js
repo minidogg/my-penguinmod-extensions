@@ -57,6 +57,22 @@ class regexCollection {
             },
           },
           {
+            opcode: 'getCaptureGroup',
+            blockType: Scratch.BlockType.BOOLEAN,
+            text: 'Get index [index] in [array]',
+            arguments: {
+                index: {
+                  type: Scratch.ArgumentType.NUMBER,
+                  defaultValue:0
+                },
+                array: {
+                    type: Scratch.ArgumentType.STRING,
+                    defaultValue:`["a","b","c"]`
+                },
+
+            },
+          },
+          {
             blockType: Scratch.BlockType.LABEL,
             text: "Basic RegExp collection"
           },
@@ -145,7 +161,8 @@ class regexCollection {
       }
 
       getCaptureGroup(args){
-        
+        alert(args.array)
+        return args.array[0]=="["?JSON.parse(args.array)[args.index]:"Invalid array!"
       }
 
       basicRegex(args){

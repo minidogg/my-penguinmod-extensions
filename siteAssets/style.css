@@ -1,0 +1,85 @@
+html {
+    height: 100%;
+    width: 100%;
+  }
+  
+  
+  body {
+    background-color: #838383;
+  }
+  
+  *{
+    font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;
+  }
+  
+  extension {
+    display: block;
+    background-color: #bebebe;
+    width: fit-content;
+    height: fit-content;
+   padding-top:15px;
+  
+    border-radius: 10px;
+    opacity: 0.9;
+  }
+  
+  .featured {
+    background-color: #e6ff7d !important;
+  }
+  
+  .extCover {
+    width: 30vmin;
+    border-radius: 10px;
+    
+    display:block;
+    margin:auto;
+  }
+  
+  .extHeader {
+    font-size: 3vmin;
+    text-align: center;
+    margin:0;
+  }
+  .extDescription{
+    text-align:center;
+    width:30vmin;
+    display:block;
+    margin:auto;
+    margin-bottom:0;
+  }
+  
+  .bottomButton{
+    all:unset;
+    width:35vmin;
+    height:5vmin;
+    margin-top:10px;
+    border-radius:10px;
+    text-align:center;
+    background-color: #00e800;
+    user-select:none;
+    transition:background-color 0.2s;
+  }
+  
+  
+  .bottomButton:hover{
+    background-color: #00b300;
+    cursor:pointer;
+  }
+  
+  #extensions{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,35vmin);
+    grid-auto-rows: auto;
+    /* how much height must each element occupy! change that! */
+    grid-gap:10px;
+  
+    position:fixed;
+    top:0;
+    left:0;
+    width:100vw;
+    height:99vh;
+    padding-top:1vh;
+    justify-content:center;
+  
+    overflow-y:scroll;
+  }

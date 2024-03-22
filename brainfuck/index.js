@@ -174,34 +174,38 @@ class BrainFuckInterperter{
             blockType: Scratch.BlockType.COMMAND,
             text: 'Set allow errors: [value]',
             arguments: {
-                value: {
-                    type: Scratch.ArgumentType.STRING,
-                    menu: 'BOOL_MENU'
-                  },
+                value:{
+                    type:Scratch.ArgumentType.BOOLEAN,
+                    defaultValue:true
+                }
+                // value: {
+                //     type: Scratch.ArgumentType.STRING,
+                //     menu: 'BOOL_MENU'
+                //   },
               }
           },
 
         ],
-        menus: {
-            BOOL_MENU: {
-              acceptReporters: true,
-              items: [
-                {
-                  text: 'true',
-                  value: true
-                },
-                {
-                  text: 'false',
-                  value: false
-                }
-              ]
-            }
-        }
+        // menus: {
+        //     BOOL_MENU: {
+        //       acceptReporters: true,
+        //       items: [
+        //         {
+        //           text: 'true',
+        //           value: true
+        //         },
+        //         {
+        //           text: 'false',
+        //           value: false
+        //         }
+        //       ]
+        //     }
+        // }
       };
     }
   
     allowErrors(args){
-        allowErrors = args.value
+        this.allowErrors = args.value
     }
 
     runCodeReporter(args){

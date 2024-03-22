@@ -12,7 +12,7 @@ class BrainFuckInterperter{
     getInfo() {
       return {
         id: 'brainfuckinterperter',
-        name: 'BrainFuck Interperter',
+        name: 'BrainFuck Intepreter',
         blocks: [
             {
                 blockType: Scratch.BlockType.LABEL,

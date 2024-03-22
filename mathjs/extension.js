@@ -24,7 +24,8 @@ class MathJS {
     }
   
     evall(args) {
-      return math.evaluate(args.exp);
+        var result = math.evaluate(args.exp)
+        return typeof(result)=="object"?JSON.stringify(object):result;
     }
   }
   

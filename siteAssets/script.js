@@ -21,4 +21,4 @@ function loadExtension(header, description, cover, url,copyCode=false){
   q('#extensions').appendChild(extension);
 }
 
-loadExtension("RegExp Collection","A collection of RegExp related blocks.","regex-collection/cover.png",page+"regex-collection/index.js",true)
+loadExtension("RegExp Collection","A collection of RegExp related blocks.","regex-collection/cover.png",page+"regex-collection/index.js")

@@ -29,8 +29,8 @@ class MathJS {
       };
     }
   
-    evall(args) {
-        var result = math.evaluate(args.exp)
+    async evall(args) {
+        var result = await math.evaluate(args.exp)
         return typeof(result)=="object"?JSON.stringify(object):result;
     }
   }

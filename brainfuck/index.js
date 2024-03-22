@@ -97,62 +97,66 @@ class BrainFuckInterperter{
         this.contexts = {}
     }
 
-    bf(code,data){
+    bf(code, data, input) {
         let result = ""
         let memory = data.memory
         let loc = data.memoryPointer
-        let throwErr = (err,i)=>{
-          return ["Error: "+err+` (Char:${i}, MemoryLocation:${loc})`,{
-            memoryPointer:loc,
-            memory:memory
+        let throwErr = (err, i) => {
+          return ["Error: " + err + ` (Char:${i}, MemoryLocation:${loc})`, {
+            memoryPointer: loc,
+            memory: memory
           }]
         }
-        
-        for(let i = 0;i<code.length;i++){
-          switch(code[i]){
-            case("+"):
+        for (let i = 0; i < code.length; i++) {
+          switch (code[i]) {
+            case ("+"):
               memory[loc]++
               break;
-            case("-"):
+            case ("-"):
               memory[loc]--
               break;
-            case(">"):
+            case (">"):
               loc++
-              if(memory[loc]==undefined)memory.push(0)
+              if (memory[loc] == undefined) memory.push(0)
               break;
-            case("<"):
+            case ("<"):
               loc--
-              if(memory[loc]==undefined){
+              if (memory[loc] == undefined) {
                 loc++
-                return throwErr(`Memory location can't go negative!`,i)
+                return throwErr(`Memory location can't go negative!`, i)
               }
               break;
-            case("["):
-              if(memory[loc]==0){
-                while(true){
-                  if(code.length<i||code[i]=="]")break
-                  i+=1
+            case ("["):
+              if (memory[loc] == 0) {
+                while (true) {
+                  if (code.length < i || code[i] == "]") break
+                  i++
                 }
-                console.log(i)
-                
-                
               }
               break;
-            case("]"):
-      
+            case ("]"):
+              if (memory[loc] != 0) {
+                while (true) {
+                  if (code.length < i || code[i] == "[") break
+                  i--
+                }
+              }
               break;
-            case("+"):
-      
+            case ("."):
+              result += String.fromCharCode(memory[loc])
               break;
-              
+            case (" "):
+              break;
+            case (","):
+              memory[loc] = input.charCodeAt(0)
+              break;
             default:
-            return throwErr(`Invalid command: ${code[i]}`,i)
+              return throwErr(`Invalid command: ${code[i]}`, i)
           }
         }
-        
-        return [result,{
-          memoryPointer:loc,
-          memory:memory
+        return [result, {
+          memoryPointer: loc,
+          memory: memory
         }]
       }
 

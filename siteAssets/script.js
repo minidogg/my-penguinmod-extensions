@@ -21,5 +21,5 @@ function loadExtension(header, description, cover, url,copyCode=false){
   q('#extensions').appendChild(extension);
 }
 
-loadExtension("BrainFuck Intepreter","It's a BrainFuck Intepreter, but in an extension.","regex-collection/cover.png",page+"brainfuck/index.js")
+loadExtension("BrainFuck Intepreter","It's a BrainFuck Intepreter, but in an extension.","brainfuck/cover.png",page+"brainfuck/index.js")
 loadExtension("RegExp Collection","A collection of RegExp related blocks.","regex-collection/cover.png",page+"regex-collection/index.js")

@@ -15,7 +15,8 @@ class MathJS {
             text: 'Evaluate math expression: [exp]',
             arguments: {
                 exp: {
-                  type: Scratch.ArgumentType.STRING
+                  type: Scratch.ArgumentType.STRING,
+                  defaultValue:"2+5*6-sin(1-3.14*9)"
                 },
             }
           }

@@ -10,7 +10,7 @@
     var extension = fs.readFileSync("extension.js","utf-8")
 
     console.log("Building bundle")
-    var bundled = "(async()=>{\n"+lib+"\n\n\n"+extension+"\n})()"
+    var bundled = "(async function(Scratch){\n"+lib+"\n\n\n"+extension+"\n})(Scratch);"
 
     console.log("Writing file")
     fs.writeFileSync("index.js",bundled,"utf-8")

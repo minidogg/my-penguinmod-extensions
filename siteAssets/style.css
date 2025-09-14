@@ -5,7 +5,7 @@ html {
   
   
   body {
-    background-color: #838383;
+    background-color: #131633;
   }
   
   *{
@@ -14,13 +14,15 @@ html {
   
   extension {
     display: block;
-    background-color: #bebebe;
+    background-color: #ffffff;
     width: fit-content;
     height: fit-content;
    padding-top:15px;
   
     border-radius: 10px;
     opacity: 0.9;
+    padding:10px;
+    min-height:250px;
   }
   
   .featured {
@@ -58,6 +60,8 @@ html {
     background-color: #00e800;
     user-select:none;
     transition:background-color 0.2s;
+    color:white;
+    font-weight: bold;
   }
   
   
@@ -67,11 +71,9 @@ html {
   }
   
   #extensions{
-    display: grid;
-    grid-template-columns: repeat(auto-fill,35vmin);
-    grid-auto-rows: auto;
-    /* how much height must each element occupy! change that! */
-    grid-gap:10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap:10px;
   
     position:fixed;
     top:0;

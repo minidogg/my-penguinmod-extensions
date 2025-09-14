@@ -23,6 +23,11 @@ class VortexLoader {
   }
 
   async loadproject(args) {
+    var overlay = document.createElement("div")
+    overlay.innerHTML = `<h1 style='color:white;text-align:center'>Loading...</h1>
+    <h2 style='color:blue;text-align:center'><a>${args.URL}</a></h2>`
+    overlay.style.backgroundColor = "black"
+    vm.renderer.addOverlay(overlay)
     let data = await (await fetch(args.URL)).arrayBuffer()
     async function hashArrayBuffer(buffer, algorithm = 'SHA-256') {
         const hashBuffer = await crypto.subtle.digest(algorithm, buffer);
@@ -33,7 +38,12 @@ class VortexLoader {
     let hash = await hashArrayBuffer(data)
     if(hash===args.HASH){
         alert("Hash check succeeded!")
-        vm.loadProject(data)
+
+
+        vm.loadProject(data).then(()=>{
+          overlay.remove()
+        })
+
     }else{
         alert(`Hash check for ${args.URL} failed, expected hash: ${args.HASH} returned hash: ${hash} `)
     }

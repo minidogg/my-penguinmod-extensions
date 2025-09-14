@@ -24,3 +24,6 @@ function loadExtension(header, description, cover, url,copyCode=false){
 loadExtension("Math.js","Turned math.js library into an extension.","mathjs/cover.png",page+"mathjs/index.js")
 loadExtension("BrainFuck Intepreter","It's a BrainFuck Intepreter, but in an extension.","brainfuck/cover.png",page+"brainfuck/index.js")
 loadExtension("RegExp Collection","A collection of RegExp related blocks.","regex-collection/cover.png",page+"regex-collection/index.js")
+loadExtension("Vortex Loader","Load external projects safely!","",page+"vortex-loader/index.js")
+
+
